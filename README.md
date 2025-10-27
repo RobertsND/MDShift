@@ -8,13 +8,13 @@ Notes: While it can be run on any operating system, this readme file contains wr
 
 
 # Table of Contents
-1. [Requirements](#req)
-2. [Implementation](#imp)
-3. [Troubleshooting](#trou)
+1. [Requirements](#requirements)
+2. [Implementation](#implementation)
+3. [Troubleshooting](#troubleshooting)
 4. [Background](#background)
 
 
-# 1. [Requirements](#req)
+# 1. Requirements
 **PyMOL and Python**  
 PyMOL is required for surface generation. A free version for evaluation can be downloaded at python.org. The easiest way to implement MDShift is to add the PyMOL embedded Python API to your system's environment variables. This way, Python will be run within PyMOL and have access to all of PyMOL's libraries. See [Troubleshooting](#trou) for more information.
 
@@ -22,7 +22,7 @@ You will need to install numpy and pandas into your PyMOL Python environment.
 
 ` pip install numpy pandas `
 
-# 2. [Implementation](#imp)
+# 2. Implementation
 
 Run the script from the directory containing your `.xyz` and optional `labels.txt` files:
 
@@ -70,7 +70,7 @@ Included is an optional script `Run_MDShift.ps1` for Windows PowerShell which al
 
 To use the current working directory, use `pwd` `cwd` `.` or `./` in place of the command line path.
 
-# 3. [Troubleshooting](#trou)
+# 3. Troubleshooting
 **ModuleNotFoundError: No module named 'pymol'**
 - First, make sure PyMOL is installed and added to your PATH.
 - In order for MDShift to use the PyMOL API, the script needs to find PyMOL's version of Python first before your regular version of Python.
@@ -79,7 +79,7 @@ To use the current working directory, use `pwd` `cwd` `.` or `./` in place of th
 Check that command again and if no errors are returned, then you are good to go.
 - If you want to use Python in the future outside of PyMOL, simply use `py` instead of `python` when running .py scripts from the command line.
 
-# 4. [Background](#background)
+# 4. Background
 Isotopic shifts in ion mobility separations have been difficult to model due to very subtle differences in arrival time of isotopically labeled species. This work attempts to explain isotopic shifts through calculating the changes in center of mass (CoM) and moments of inertia (MoI) upon isotopic substitution.
 
 **CoM**  
