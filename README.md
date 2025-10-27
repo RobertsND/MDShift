@@ -57,7 +57,8 @@ Enter the name of your `.txt` file which specifies the isotopic substitutions to
 | `out.txt` | Descriptive output of all computed values.
 | `out.csv` | Outputs center of mass cooridnates and principal moments of inertia.
 | `*_labeled_n.xyz` | Each molecule (*) that has been isotopically labeled gets a unique filename. **DO NOT** rename these files as they are automatically linked to base molecules.
-| `*_points.txt` | Connolly surface points of each unlabeled molecule (*). **DO NOT** rename these files as they are automatically linked to base molecules.
+| `*_points.txt` | Connolly surface points of each unlabeled molecule (*). **DO NOT** rename these files as they are automatically linked to base molecules.|
+
 A temporary `.wrl` file is generated during surface generation and deleted when the program is terminated. If you would like to save this file, delete or comment the following line in the source code:
 
 `os.remove(wrl_file)`
@@ -96,7 +97,6 @@ $$
  dMoI =\frac{1}{3}\left (\frac{I_{x, heavy}}{I_{x, light}}+\frac{I_{y, heavy}}{I_{y, light}}+\frac{I_{z, heavy}}{I_{z, light}} \right )
 $$
  Moments of inertia are calculated by building the inertia tensor in the molecule's coordinate system and diagonalizing using numpy.linalg.eigh(). Each `.xyz` file is processed and `out.txt` contains the initial inertia tensor, the diagonalized inertia tensor, and the eigenvectors. The columns of the eigenvectors correspond to the principal axes in the original coordinate system. The diagonal elements of the diagonalized inertia tensor correspond to the principal moments in each of the three principal axes.
-
 
 
 
