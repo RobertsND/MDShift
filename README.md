@@ -15,7 +15,7 @@ Notes: While it can be run on any operating system, this readme file contains wr
 
 
 # 1. [Requirements](#req)
-**PyMOL and Python**
+**PyMOL and Python**  
 PyMOL is required for surface generation. A free version for evaluation can be downloaded at python.org. The easiest way to implement MDShift is to add the PyMOL embedded Python API to your system's environment variables. This way, Python will be run within PyMOL and have access to all of PyMOL's libraries. See [Troubleshooting](#trou) for more information.
 
 You will need to install numpy and pandas into your PyMOL Python environment.
@@ -63,7 +63,7 @@ A temporary `.wrl` file is generated during surface generation and deleted when 
 
 `os.remove(wrl_file)`
 
-**Optional implementation**
+**Optional implementation**  
 Included is an optional script `Run_MDShift.ps1` for Windows PowerShell which allows MDShift to be run from any directory. Replace `$ScriptPath` with the path to MDShift.py and implement with the path to where your `.xyz` and optional `.txt` files are:
 
 `.\Run_MDShift.ps1 "C:\Users\Henry Eyring\data" <labels.txt> <solvent_radius>`
