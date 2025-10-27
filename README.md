@@ -94,6 +94,7 @@ Finally, `max_dist()` calculates the distance from the CoM to the furthest atom.
 **MoI**  
 In order to obtain a single quantity which describes the change in the rotational inertia, we elected to calculate dMoI which is an average change in the each moment of inertia relative to the starting isotopologue.  
 $$dMoI =\frac{1}{3}\left (\frac{I_{x, heavy}}{I_{x, light}}+\frac{I_{y, heavy}}{I_{y, light}}+\frac{I_{z, heavy}}{I_{z, light}} \right )$$
+
 Moments of inertia are calculated by building the inertia tensor in the molecule's coordinate system and diagonalizing using numpy.linalg.eigh(). Each `.xyz` file is processed and `out.txt` contains the initial inertia tensor, the diagonalized inertia tensor, and the eigenvectors. The columns of the eigenvectors correspond to the principal axes in the original coordinate system. The diagonal elements of the diagonalized inertia tensor correspond to the principal moments in each of the three principal axes.
 
 
