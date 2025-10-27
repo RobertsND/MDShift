@@ -92,10 +92,10 @@ Another function, `avg_distance_each_dim()`, calculates the average distance fro
 Finally, `max_dist()` calculates the distance from the CoM to the furthest atom. This strategy attempts to explain the shift in CoM assuming that the collision surface is a perfect sphere made by the outermost point of the molecule. This strategy does not account for the shape of the molecule (e.g., no difference between oblate and prolate spheroids) which may be an oversight and should also be interpreted with caution.
 
 **MoI**  
-In order to obtain a single quantity which describes the change in the rotational inertia, we elected to calculate dMoI which is an average change in the each moment of inertia relative to the starting isotopologue.
+In order to obtain a single quantity which describes the change in the rotational inertia, we elected to calculate dMoI which is an average change in the each moment of inertia relative to the starting isotopologue.  
 $$
  dMoI =\frac{1}{3}\left (\frac{I_{x, heavy}}{I_{x, light}}+\frac{I_{y, heavy}}{I_{y, light}}+\frac{I_{z, heavy}}{I_{z, light}} \right )
-$$
+$$  
  Moments of inertia are calculated by building the inertia tensor in the molecule's coordinate system and diagonalizing using numpy.linalg.eigh(). Each `.xyz` file is processed and `out.txt` contains the initial inertia tensor, the diagonalized inertia tensor, and the eigenvectors. The columns of the eigenvectors correspond to the principal axes in the original coordinate system. The diagonal elements of the diagonalized inertia tensor correspond to the principal moments in each of the three principal axes.
 
 
