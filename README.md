@@ -1,8 +1,8 @@
 # MDShift.py
-**Purpose:** The purpose of this program is to calculate the changes in mass distribution upon isotopic labeling in order to explain/predict isotopic shifts in high-resolution ion mobility separations. For relevant literature visit nagylab.com.
-**Authors:** Noah D. Roberts and Gabe Nagy
-**Contact:** noah.roberts@utah.edu, gabe.nagy@utah.edu
-**Citation**: Roberts, N.D., Ramos, K., Jijieshvili, G., Armentrout, P.B., Nagy, G. Isotopic dimethylation coupled with high-resolution ion mobility separations enables site-specific isotopic shifts in peptide isomers. 2026, *Anal. Chem.*
+**Purpose:** The purpose of this program is to calculate the changes in mass distribution upon isotopic labeling in order to explain/predict isotopic shifts in high-resolution ion mobility separations. For relevant literature visit nagylab.com.  
+**Authors:** Noah D. Roberts and Gabe Nagy  
+**Contact:** noah.roberts@utah.edu, gabe.nagy@utah.edu  
+**Citation**: Roberts, N.D., Ramos, K., Jijieshvili, G., Armentrout, P.B., Nagy, G. Isotopic dimethylation coupled with high-resolution ion mobility separations enables site-specific isotopic shifts in peptide isomers. 2026, *Anal. Chem.*  
 
 Notes: While it can be run on any operating system, this readme file contains written instructions for running MDShift on Windows. This program has not been written for parallelization, but it requires very little computational power and can be run locally; runtime may be on the order of hundreds of milliseconds per molecule.
 
@@ -82,7 +82,7 @@ Check that command again and if no errors are returned, then you are good to go.
 # 4. [Background](#background)
 Isotopic shifts in ion mobility separations have been difficult to model due to very subtle differences in arrival time of isotopically labeled species. This work attempts to explain isotopic shifts through calculating the changes in center of mass (CoM) and moments of inertia (MoI) upon isotopic substitution.
 
-**CoM**
+**CoM**  
 It is insufficient to simply describe the change in CoM as only a distance. This is because if the CoM shifts more towards the molecule's geometric center, we would anticipate a reduction in cross section. Thus, it becomes necessary to describe the change in CoM in terms of both its magnitude *and* direction. Quantifying the CoM shift in a particular direction is trivial, but it becomes difficult to decide on a singular quantity to describe the shift in irregular 3D objects. Thus, we elected to describe the shift as a change in the the average distance from the CoM to the ion-neutral collision surface (i.e., the Connolly surface or the solvent accessible surface, SAS). We begin with the base, unlabeled isotopologue by calculating the average distance from its CoM to the SAS and call this value r̄<sub>p<sub>light</sub></sub>. Then, upon isotopic substitution, the CoM is recalculated and r̄<sub>p<sub>heavy</sub></sub> is calculated relative to the original SAS. Each r̄<sub>p</sub> value is reported in `out.csv` as `CoMtoSurf`. `Examples\Palmitate` contains `Palmitate.xyz` and `label.txt` which labels the Palmitate anion with two variants of isotopic substitution.
 
 Another variation of this calculation can be done where each distance r<sub>p</sub> is represented as a sphere before averaging by squaring each value of r<sub>p</sub> and multiplying by 4π. This done with `avg_spheres()` and the output is shown in `out.txt` under `Calculating ⟨distance² × 4π⟩ from CoM to Connolly surface for isotopologues`.
@@ -91,7 +91,7 @@ Another function, `avg_distance_each_dim()`, calculates the average distance fro
 
 Finally, `max_dist()` calculates the distance from the CoM to the furthest atom. This strategy attempts to explain the shift in CoM assuming that the collision surface is a perfect sphere made by the outermost point of the molecule. This strategy does not account for the shape of the molecule (e.g., no difference between oblate and prolate spheroids) which may be an oversight and should also be interpreted with caution.
 
-**MoI**
+**MoI**  
 In order to obtain a single quantity which describes the change in the rotational inertia, we elected to calculate dMoI which is an average change in the each moment of inertia relative to the starting isotopologue.
 $$
  dMoI =\frac{1}{3}\left (\frac{I_{x, heavy}}{I_{x, light}}+\frac{I_{y, heavy}}{I_{y, light}}+\frac{I_{z, heavy}}{I_{z, light}} \right )
